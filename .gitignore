@@ -1,0 +1,5 @@
+# files to be excluded
+
+*.save
+*.pdf
+*.docx
