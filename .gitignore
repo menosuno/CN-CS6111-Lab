@@ -3,3 +3,7 @@
 *.save
 *.pdf
 *.docx
+*.o
+server$
+client$
+proxy$
