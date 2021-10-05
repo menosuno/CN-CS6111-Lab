@@ -1,9 +1,12 @@
 # files to be excluded
 
-*.save
-*.pdf
-*.docx
-*.o
-^server$
-^client$
-^proxy$
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+### Above combination will ignore all files without extension ###
