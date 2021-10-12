@@ -11,8 +11,8 @@
 #include<string.h>
 #include<sys/sendfile.h>
 
-#define port1 7876
-#define port2 7573 
+#define port1 30071
+#define port2 30072
 #define N 5 
 #define SIZE 300
 
