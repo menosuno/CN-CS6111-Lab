@@ -1,5 +1,5 @@
 #include "header.h"
-#define TLD 5000
+#define TLD 5371
 #define MAX 100
 
 void DNS_lookup(char* host,char* IP) {
@@ -103,9 +103,9 @@ int main() {
 	struct sockaddr_in tldaddr,cliaddr;
 	bzero(&tldaddr,sizeof(tldaddr));
 	bzero(&cliaddr,sizeof(cliaddr));
-	//create socket
+	// create socket
 	tldsock=socket(AF_INET,SOCK_DGRAM,0);
-	//fill socket addr
+	// fill socket address
 	tldaddr.sin_family=AF_INET;
 	tldaddr.sin_addr.s_addr=htonl(INADDR_ANY);
 	tldaddr.sin_port=htons(TLD);

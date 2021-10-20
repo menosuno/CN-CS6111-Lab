@@ -1,5 +1,5 @@
 #include "header.h"
-#define ROOT 3513
+#define ROOT 3372
 #define MAX 100
 
 void DNS_lookup(char* host,char* IP) {

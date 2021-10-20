@@ -1,7 +1,7 @@
 #include "header.h"
 #include <pthread.h>
-#define AUTH1 6000
-#define AUTH2 8000
+#define AUTH1 6371
+#define AUTH2 8371
 #define MAX 100
 
 typedef struct {
@@ -13,18 +13,16 @@ typedef struct {
 void DNS_lookup(char* host,char* IP,int auth) {
 	FILE* data;
 	if(auth==AUTH1)
-	data=fopen("Auth_DNS1.txt","r");
+		data=fopen("Auth_DNS1.txt","r");
 	else
-	data=fopen("Auth_DNS2.txt","r");
+		data=fopen("Auth_DNS2.txt","r");
 	char linebuff[MAX];
 	char temp[MAX];
 	while(fgets(linebuff,MAX,data) != 0) {
 		strcpy(temp,linebuff);
 		char* tok=strtok(temp," ");
-		// printf("%s-%s-%s\n",linebuff,tok,host);
 		if(strncmp(host,tok,strlen(tok))==0) {
 			char* iptemp=strtok(NULL,"\n");
-			//printf("IP addr of %s:%s\n",host,iptemp);
 			strcpy(IP,iptemp);
 			return;
 		}
@@ -72,11 +70,11 @@ int main() {
 	authaddr2.sin_family=AF_INET;
 	authaddr2.sin_addr.s_addr=htonl(INADDR_ANY);
 	authaddr2.sin_port=htons(AUTH2);
-	if((bind(authsock1,(const struct sockaddr*)&authaddr1,sizeof(authaddr1)))<0) {
+	if((bind(authsock1,(const struct sockaddr*)&authaddr1,sizeof(authaddr1))) < 0) {
 		perror("bind error\n");
 		exit(EXIT_FAILURE);
 	}
-	if((bind(authsock2,(const struct sockaddr*)&authaddr2,sizeof(authaddr2)))<0) {
+	if((bind(authsock2,(const struct sockaddr*)&authaddr2,sizeof(authaddr2))) < 0) {
 		perror("bind error\n");
 		exit(EXIT_FAILURE);
 	}
@@ -93,8 +91,6 @@ int main() {
 	ARG2.addr=cliaddr;
 	ARG2.auth=AUTH2;
 	pthread_create(&t2,NULL,chat,(void*)&ARG2);
-	//chat(authsock1,cliaddr,AUTH1);
-	//chat(authsock2,cliaddr,AUTH2);
 	pthread_join(t1,NULL);
 	pthread_join(t2,NULL);
 	close(authsock1);
