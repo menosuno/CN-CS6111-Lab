@@ -1,0 +1,6 @@
+yahoo.com 15.16.143.251,6000
+facebook.com 75.67.34.14,7000
+google.com CN,asp.l.google.com
+youtube.com 10.14.56.123,8000
+asp.l.google.com 10.14.56.123,8000
+twitter.com 12.34.56.234,9000

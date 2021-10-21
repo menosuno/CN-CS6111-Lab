@@ -1,5 +1,5 @@
 #include "header.h"
-#define DNS_PORT 3371
+#define DNS_PORT 5551
 #define MAX 100
 
 typedef struct{

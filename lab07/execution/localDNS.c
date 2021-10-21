@@ -1,6 +1,6 @@
 #include "header.h"
-#define DNS_PORT 3371
-#define ROOT 3372
+#define DNS_PORT 5551
+#define ROOT 6666
 #define MAX 100
 #define cache "local_cache.txt"
 

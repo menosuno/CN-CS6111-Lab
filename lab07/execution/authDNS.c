@@ -1,7 +1,7 @@
 #include "header.h"
 #include <pthread.h>
-#define AUTH1 6371
-#define AUTH2 8371
+#define AUTH1 8833
+#define AUTH2 8834
 #define MAX 100
 
 typedef struct {

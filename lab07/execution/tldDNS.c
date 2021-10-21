@@ -1,5 +1,5 @@
 #include "header.h"
-#define TLD 5371
+#define TLD 3333
 #define MAX 100
 
 void DNS_lookup(char* host,char* IP) {
