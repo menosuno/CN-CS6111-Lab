@@ -1,4 +1,3 @@
-#include "def.h"
 #include "commonop.h"
 
 int main()
@@ -95,9 +94,8 @@ int main()
 			scanf("%*d");
 
 			sendPacket(cskt, &pkt);
-			printf("Sent packet no %d (Probe packet)\n", counter);
+			printf("Sent packet no %d (Probe packet)\n\n", counter);
 
-			printf("\n");
 			++counter;
 		}
 
@@ -137,9 +135,8 @@ int main()
 				++last_sent;
 				
 				printf("Sent packet no %d (Sequence number: %d)\n", counter, pkt.seq_no);
-				printf("Data sent: %s\n", pkt.data);
+				printf("Data sent: %s\n\n", pkt.data);
 
-				printf("\n");
 				++counter;
 			}
 		}
@@ -174,7 +171,7 @@ int main()
 			advertisedWindow = res.advertisedWindow;
 		}
 
-		// End the transmission if all packets' have been acked
+		// End the transmission if all packets have been acked
 		if (readDone && !retransmit && (last_acked == last_sent) && (last_sent == last_written)) {
 			printf("Finished transmission\n");
 			break;

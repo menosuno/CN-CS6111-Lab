@@ -1,4 +1,3 @@
-#include "def.h"
 #include "commonop.h"
 
 int main()

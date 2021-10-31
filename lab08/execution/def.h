@@ -1,5 +1,4 @@
-#ifndef DEFINITIONS
-#define DEFINITIONS
+#pragma once
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +10,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
-#define PORT 3005
+#define PORT 5689
 #define WIN_SIZE 4
 #define SEQ_MAX 8
 #define N 5
@@ -24,9 +23,5 @@ typedef struct tcp_packet {
 	bool ack;
 	bool dropped;
 	int advertisedWindow;
-
 	char data[N];
 } TCP_Packet;
-
-#endif
-
