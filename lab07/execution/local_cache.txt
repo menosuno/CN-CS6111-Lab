@@ -1,3 +1,2 @@
 www.facebook.com 127.4.5.2
 www.yahoo.com 56.98.23.123
-hotmail.yahoo.com 45.16.75.24

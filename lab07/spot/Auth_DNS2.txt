@@ -1,0 +1,4 @@
+www.asp.l.google.com 12.23.45.123
+mail.asp.l.google.com 12.23.45.456
+drive.asp.l.google.com 12.23.46.567
+www.youtube.com 13.24.46.567
