@@ -1,52 +1,50 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
+int main() {
+	// message
+	char msg[200] = "Hello World\n";
+	// buffer string
+	char buf[200];
 
-int main()
-{
-        char msg[200] = "Hello World\n";
-        char buf[200];
+	// server socket creation
+	int server_socket = socket(AF_INET, SOCK_STREAM, 0);
+	if (server_socket < 0) {
+		printf("ERROR in socket creation\n");
+	}
+	printf("Socket established\n\n");
 
-        int server_socket = socket(AF_INET, SOCK_STREAM, 0);
-        if (server_socket < 0)
-        {
-                printf("ERROR in socket creation\n");
-        }
+	// feed server address
+	struct sockaddr_in server_address;
+	server_address.sin_family = AF_INET;
+	server_address.sin_port = htons(3071);	
+	server_address.sin_addr.s_addr = INADDR_ANY;
 
-        printf("Socket established\n\n");
+	// bind the server
+	int status = bind(server_socket, (struct sockaddr*)& server_address, sizeof(server_address));
+	if (status < 0)	{
+		printf("Error in establishing server\n\n");
+		return -1;
+	}
 
-        struct sockaddr_in server_address;
-        server_address.sin_family = AF_INET;
-        server_address.sin_port = htons(3005);
-        server_address.sin_addr.s_addr = INADDR_ANY;
+	printf("SERVER ESTABLISHED\n");
+	printf("Listening on port %d\n\n", ntohs(server_address.sin_port));
 
-        int status = bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address));
+	// listen to 1 client
+	listen(server_socket, 1);
 
-        if (status < 0)
-        {
-                printf("Error in establishing server\n\n");
-                return -1;
-        }
+	// accepting from client socket
+	int client_socket = accept(server_socket, NULL, NULL);
 
-        printf("SERVER ESTABLISHED\n");
-        printf("Listening on port %d\n\n", ntohs(server_address.sin_port));
+	// send the message to the client
+	send(client_socket, msg, sizeof(msg), 0);
+	// receiving the message from client
+	recv(client_socket, buf, sizeof(buf), 0);
 
-        listen(server_socket, 1);
+	// checking for the message from the client
+	if (sizeof(buf) > 0) {
+		printf("Message from client: %s\n", buf);
+	}
 
-        int client_socket = accept(server_socket, NULL, NULL);
+	// closing the connection
+	close(server_socket);
 
-        send(client_socket, msg, sizeof(msg), 0);
-        recv(client_socket, buf, sizeof(buf), 0);
-
-        if (sizeof(buf) > 0)
-        {
-                printf("Message from client: %s\n", buf);
-        }
-
-        close(server_socket);
-
-        return 0;
+	return 0;
 }
