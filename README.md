@@ -54,3 +54,29 @@
 >> two objects and transfer it as different objects
 >> in the same data connection
 
+## Lab 7
+> - Execution
+>> Implementation of DNS using UDP sockets
+
+> - Spot
+>> Implementation of DNS using UDP sockets
+>> and use local server cache
+
+## Lab 8
+> - Execution
+>> Implementation of Go-Back-N Flow Control 
+>> using TCP sockets
+
+> - Spot
+>> Implementation of Go-Back-N Flow Control 
+>> using TCP sockets using finite size buffer
+
+## Lab 9
+> - Execution
+>> Simulate Selective Reject Flow Control 
+>> Protocol using TCP sockets
+
+> - Spot
+>> Simulate Selective Reject Flow Control 
+>> Protocol using TCP sockets and 
+>> drop the ack packet 
