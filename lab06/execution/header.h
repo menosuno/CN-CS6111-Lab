@@ -12,7 +12,6 @@
 #define CONTROL_PORT 30071
 
 int sendDirConList(int sock) { 
-
 	DIR *d; 
 	struct dirent *dir; 
 	char cwd[BUFSIZ] = {0}; 
